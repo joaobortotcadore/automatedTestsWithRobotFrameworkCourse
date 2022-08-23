@@ -39,10 +39,19 @@ ${ESTADO_CIVIL_DO_CLIENTE}    Casado(a)
 
 *** Test Cases ***
 Fazer o cadastro de um novo cliente
-    Set Selenium Speed    0.3
+    Abrir o navegador na página de cadastro de cliente
+    Verificar se o título da página de cadastro de clientes esta correto
+    Preencher campos do formulário de cadastro de clientes
+    Cadastrar o cliente
+    Verificar a mensagem de cliente cadastrado com sucesso
+    Fechar navegador
+
+*** Keywords ***
+Abrir o navegador na página de cadastro de cliente
     Open Browser    ${URL_CADASTRO_DE_CLIENTES}    ${NAVEGADOR_DO_TESTE}
-    Maximize Browser Window
-    Title Should Be    ${TITULO_PAGINA_DE_CLIENTES}
+Fechar navegador
+    Close Browser
+Preencher campos do formulário de cadastro de clientes
     Input Text    ${INPUT_NOME_DO_CLIENTE}    ${NOME_DO_CLIENTE}
     Input Text    ${INPUT_CPF_DO_CLIENTE}    ${CPF_DO_CLIENTE}
     Input Text    ${INPUT_DATA_NASCIMENTO_DO_CLIENTE}   ${DATA_NASCIMENTO_DO_CLIENTE}
@@ -54,12 +63,13 @@ Fazer o cadastro de um novo cliente
     Select From List By Value    ${SELECT_ESTADO_CIVIL_DO_CLIENTE}    ${ESTADO_CIVIL_DO_CLIENTE}
     Click Element    ${CHECK_TESTES_AUTOMATIZADOS}
     Click Element    ${CHECK_VIDEO_GAMES}
+Cadastrar o cliente
     Click Element    ${BUTTON_CADASTRAR}
     Wait Until Element Is Visible    ${CAMPO_MENSAGEM}
+Verificar a mensagem de cliente cadastrado com sucesso
     Wait Until Page Contains    ${MENSAGEM_SUCESSO_CADASTRO}
-    Close Browser
-
-*** Keywords ***
+Verificar se o título da página de cadastro de clientes esta correto
+    Title Should Be    ${TITULO_PAGINA_DE_CLIENTES}
 Aguardar o valor "${valor_esperado}" no elemento "${elemento}" estar presente
     ${valor_atual}=    Get Element Attribute    ${elemento}    value
     Should Be Equal As Strings    ${valor_atual}    ${valor_esperado}
