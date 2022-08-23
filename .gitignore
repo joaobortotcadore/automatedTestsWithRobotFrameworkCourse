@@ -1,2 +1,5 @@
 results/
 **/results/
+projeto-teste-x/tests/results/log.html
+projeto-teste-x/tests/results/output.xml
+projeto-teste-x/tests/results/report.html
