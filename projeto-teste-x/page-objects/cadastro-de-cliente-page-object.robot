@@ -41,8 +41,6 @@ ${ESTADO_CIVIL_DO_CLIENTE}    Casado(a)
 *** Keywords ***
 Abrir o navegador na página de cadastro de cliente
     Open Browser    ${URL_CADASTRO_DE_CLIENTES}    ${NAVEGADOR_DO_TESTE}
-Fechar navegador
-    Close Browser
 Preencher campos do formulário de cadastro de clientes
     Input Text    ${INPUT_NOME_DO_CLIENTE}    ${NOME_DO_CLIENTE}
     Input Text    ${INPUT_CPF_DO_CLIENTE}    ${CPF_DO_CLIENTE}
