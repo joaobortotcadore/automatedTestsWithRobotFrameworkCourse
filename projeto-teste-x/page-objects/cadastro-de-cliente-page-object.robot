@@ -28,6 +28,8 @@ ${NAVEGADOR_DO_TESTE}    chrome
 
 ${TITULO_PAGINA_DE_CLIENTES}    Cadastro de Clientes
 ${MENSAGEM_SUCESSO_CADASTRO}    Cliente cadastrado com sucesso!
+${MENSAGEM_NOME_OBRIGATORIO}    Nome é obrigatório!
+${MENSAGEM_CPF_OBRIGATORIO}    CPF é obrigatório!
 
 # valores para preencher os campos do formulario
 ${NOME_DO_CLIENTE}    Joao Gabriel
@@ -63,3 +65,10 @@ Verificar se o título da página de cadastro de clientes esta correto
 Aguardar o valor "${valor_esperado}" no elemento "${elemento}" estar presente
     ${valor_atual}=    Get Element Attribute    ${elemento}    value
     Should Be Equal As Strings    ${valor_atual}    ${valor_esperado}
+
+Verificar a mensagem informando que o campo nome é obrigatório
+    Wait Until Page Contains    ${MENSAGEM_NOME_OBRIGATORIO}
+Preencher o nome do cliente
+    Input Text    ${INPUT_NOME_DO_CLIENTE}    ${NOME_DO_CLIENTE}
+Verificar a mensagem informando que o campo cpf é obrigatório
+    Wait Until Page Contains    ${MENSAGEM_CPF_OBRIGATORIO}

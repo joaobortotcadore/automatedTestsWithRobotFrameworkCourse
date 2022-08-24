@@ -14,3 +14,16 @@ Fazer o cadastro de um novo cliente
     Preencher campos do formulário de cadastro de clientes
     Cadastrar o cliente
     Verificar a mensagem de cliente cadastrado com sucesso
+
+Não permitir cadastrar um cliente sem informar o nome
+    Ir para a página de cadastro de clientes
+    Verificar se o título da página de cadastro de clientes esta correto
+    Cadastrar o cliente
+    Verificar a mensagem informando que o campo nome é obrigatório
+    
+Não permitir cadastrar um cliente sem informar o cpf
+    Ir para a página de cadastro de clientes
+    Verificar se o título da página de cadastro de clientes esta correto
+    Preencher o nome do cliente
+    Cadastrar o cliente
+    Verificar a mensagem informando que o campo cpf é obrigatório
